@@ -2,11 +2,11 @@ import express from "express";
 import { rentalList } from "../Helper/mongooseValidator.js";
 
 const router = express.Router();
-//CRUD for products....
+
 
 router.post("/rentalProducts", async (req, res) => {
     try {
-      //Adding new user....
+      
       const newUser = await new rentalList({
         id:req.body.id,
         product: req.body.product,
