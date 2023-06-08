@@ -55,8 +55,7 @@ router.post("/logIn", async (req, res) => {
 
 router.get("/products", async (req, res) => {
     try {
-      const products = await productList
-        .find();
+      const products = await productList.find();
       if (products) {
         return res.status(200).json({ data : products });
       }
