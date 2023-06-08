@@ -26,7 +26,7 @@ const logInSchema = new mongoose.Schema({
         type : String,
         required : true,
         min:8
-    },
+    }
 })
 const productSchema = new mongoose.Schema({
     product:{
