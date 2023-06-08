@@ -2,18 +2,18 @@ import express from "express";
 import { productList } from "../Helper/mongooseValidator.js";
 
 const router = express.Router();
-//CRUD for products....
+
 
 router.post("/products", async (req, res) => {
     try {
-      //checking the user is present or not....
+      
       const user = await productList
         .findOne({ product: req.body.product })
         .catch((error) => console.log("Error---", error));
       if (user) {
         return res.status(400).json({ message: "Product already exist...." });
       }
-      //Adding new user....
+      
       const newUser = await new productList({
         product: req.body.product,
         price: req.body.price,
@@ -28,7 +28,7 @@ router.post("/products", async (req, res) => {
   });
   router.put("/products", async (req, res) => {
     try {
-      //checking the user is present or not....
+      
       console.log(req)
       const user = await productList
         .updateOne(
