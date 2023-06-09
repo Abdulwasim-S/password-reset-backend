@@ -15,7 +15,7 @@ app.use(express.json());
 await dbConnection();
 
 app.use('/',RouterList);
-app.use('/rental',cors(),isAuth,ProductRoute);
-app.use('/admin',cors(),isAuth,RentalProductRoute);
+app.use('/rental',isAuth,ProductRoute);
+app.use('/admin',isAuth,RentalProductRoute);
 
 app.listen(PORT,()=>{console.log("Listening...",PORT)})
