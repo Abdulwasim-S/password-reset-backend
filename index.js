@@ -8,7 +8,9 @@ import { isAuth } from './Helper/isAuth.js';
 import { RentalProductRoute } from './Router/RentalRouter.js';
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin:"*"
+}));
 const PORT = process.env.PORT
 app.use(express.json());
 
