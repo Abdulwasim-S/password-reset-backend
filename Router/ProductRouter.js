@@ -7,21 +7,21 @@ const router = express.Router();
 router.post("/products", async (req, res) => {
     try {
       
-      const user = await productList
+      const product = await productList
         .findOne({ product: req.body.product })
         .catch((error) => console.log("Error---", error));
-      if (user) {
+      if (product) {
         return res.status(400).json({ message: "Product already exist...." });
       }
       
-      const newUser = await new productList({
+      const newProduct = await new productList({
         product: req.body.product,
         price: req.body.price,
         quantity: req.body.quantity,
         id: req.body.id,
         image:req.body.image
       }).save();
-      res.status(200).json({ message: "Added new product", newUser });
+      res.status(200).json({ message: "Added new product", newProduct});
     } catch (error) {
       console.log("Error in product----", error);
     }
@@ -30,7 +30,7 @@ router.post("/products", async (req, res) => {
     try {
       
       console.log(req)
-      const user = await productList
+      const product = await productList
         .updateOne(
           { id: req.headers.id},
           {
@@ -42,22 +42,22 @@ router.post("/products", async (req, res) => {
           }
         )
         .catch((error) => console.log("Error---", error));
-      if (user) {
-        return res.status(200).json({ message: "Product updated....." });
+      if (product) {
+        return res.status(200).json({ message: "Product updated.....",product});
       }
-      res.status(400).json({ message: "cant eidtied new product", user });
+      res.status(400).json({ message: "cant eidtied new product" });
     } catch (error) {
       console.log("Error in product----", error);
     }
   });
   router.delete("/products", async (req, res) => {
     try {
-      const user = await productList
+      const product = await productList
         .deleteOne({ id: req.headers.id })
-      if (user) {
+      if (product) {
         return res.status(200).json({ message: "Product deleted....." });
       }
-      res.status(400).json({ message: "cant delete product", user });
+      res.status(400).json({ message: "cant delete product", product });
     } catch (error) {
       console.log("Error in product----", error);
     }
