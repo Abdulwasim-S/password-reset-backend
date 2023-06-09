@@ -8,16 +8,14 @@ import { isAuth } from './Helper/isAuth.js';
 import { RentalProductRoute } from './Router/RentalRouter.js';
 
 const app = express();
-app.use(cors({
-    origin:"*"
-}));
+app.use(cors());
 const PORT = process.env.PORT
 app.use(express.json());
 
 await dbConnection();
 
 app.use('/',RouterList);
-app.use('/rental',isAuth,ProductRoute);
-app.use('/admin',isAuth,RentalProductRoute);
+app.use('/rental',cors(),isAuth,ProductRoute);
+app.use('/admin',cors(),isAuth,RentalProductRoute);
 
 app.listen(PORT,()=>{console.log("Listening...",PORT)})
