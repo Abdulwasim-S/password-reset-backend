@@ -57,7 +57,7 @@ router.get("/products", async (req, res) => {
     try {
       const products = await productList.find();
       if (products) {
-        return res.status(200).json({ data : products });
+        return res.status(200).json({ products_list : products });
       }
       res.status(400).json({ message: "cant find product" });
     } catch (error) {
