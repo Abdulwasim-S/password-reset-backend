@@ -32,7 +32,7 @@ router.post("/products", async (req, res) => {
       console.log(req)
       const product = await productList
         .updateOne(
-          { id: req.headers.id},
+          { _id: req.headers.id},
           {
             $set: {
               product: req.body.product,
@@ -53,7 +53,7 @@ router.post("/products", async (req, res) => {
   router.delete("/products", async (req, res) => {
     try {
       const product = await productList
-        .deleteOne({ id: req.headers.id })
+        .deleteOne({ _id: req.headers.id })
       if (product) {
         return res.status(200).json({ message: "Product deleted....." });
       }
