@@ -8,9 +8,10 @@ import { isAuth } from './Helper/isAuth.js';
 import { RentalProductRoute } from './Router/RentalRouter.js';
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT
 app.use(express.json());
-app.use(cors());
+
 await dbConnection();
 
 app.use('/',RouterList);
