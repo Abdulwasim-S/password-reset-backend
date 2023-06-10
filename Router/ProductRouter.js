@@ -30,7 +30,7 @@ router.post("/products", async (req, res) => {
     try {
       
       console.log(req)
-      const product = await productList
+      const updatedProduct = await productList
         .updateOne(
           { _id: req.headers.id},
           {
@@ -38,12 +38,13 @@ router.post("/products", async (req, res) => {
               product: req.body.product,
               price: req.body.price,
               quantity: req.body.quantity,
+              image:req.body.image
             },
           }
         )
         .catch((error) => console.log("Error---", error));
       if (product) {
-        return res.status(200).json({ message: "Product updated.....",product});
+        return res.status(200).json({ message: "Product updated.....",updatedProduct});
       }
       res.status(400).json({ message: "cant eidtied new product" });
     } catch (error) {
