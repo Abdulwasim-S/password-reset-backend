@@ -43,7 +43,7 @@ router.post("/products", async (req, res) => {
           }
         )
         .catch((error) => console.log("Error---", error));
-      if (product) {
+      if (updatedProduct) {
         return res.status(200).json({ message: "Product updated.....",updatedProduct});
       }
       res.status(400).json({ message: "cant eidtied new product" });
