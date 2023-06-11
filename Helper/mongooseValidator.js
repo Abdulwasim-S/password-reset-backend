@@ -98,7 +98,7 @@ const rentalSchema = new mongoose.Schema({
         type : Number,
         required : true
     },
-    imageURL:{
+    image:{
         type : String,
         required : true
     }
