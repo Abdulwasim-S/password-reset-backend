@@ -1,5 +1,5 @@
 import express from "express";
-import { Users, logInUser, productList } from "../Helper/mongooseValidator.js";
+import { Users, logInUser, productList, rentalList } from "../Helper/mongooseValidator.js";
 import { passwordComparing, passwordHashing } from "../Helper/passwordHashing.js";
 import { generateToken } from "../Helper/jwtToken.js";
 
