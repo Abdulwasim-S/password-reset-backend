@@ -83,7 +83,7 @@ router.get("/products", async (req, res) => {
       }).save();
       res.status(200).json({ message: "Added new product", newUser });
     } catch (error) {
-      console.log("Error in product----", error);
+      res.status(4000).json({message:"Error in product----",error_message:error});
     }
   });
 
