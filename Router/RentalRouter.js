@@ -1,7 +1,9 @@
 import express from "express";
 import { rentalList } from "../Helper/mongooseValidator.js";
+import cors from 'cors';
 
 const router = express.Router();
+router.use(cors());
 
 
 router.post("/rentalProducts", async (req, res) => {
