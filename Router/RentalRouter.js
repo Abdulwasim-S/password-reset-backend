@@ -5,28 +5,28 @@ import { rentalList } from "../Helper/mongooseValidator.js";
 const router = express.Router();
 
 
-router.post("/rentalProducts", async (req, res) => {
-    try {
+// router.post("/rentalProducts", async (req, res) => {
+//     try {
       
-      const newUser = await new rentalList({
-        id:req.body.id,
-        product: req.body.product,
-        price: req.body.price,
-        quantity: req.body.quantity,
-        fromDate:req.body.fromDate,
-        toDate:req.body.toDate,
-        fromTime:req.body.fromTime,
-        toTime:req.body.toTime,
-        buyerName:req.body.buyerName,
-        address:req.body.address,
-        mobile:req.body.mobile,
-        image:req.body.image
-      }).save();
-      res.status(200).json({ message: "Added new product", newUser });
-    } catch (error) {
-      console.log("Error in product----", error);
-    }
-  });
+//       const newUser = await new rentalList({
+//         id:req.body.id,
+//         product: req.body.product,
+//         price: req.body.price,
+//         quantity: req.body.quantity,
+//         fromDate:req.body.fromDate,
+//         toDate:req.body.toDate,
+//         fromTime:req.body.fromTime,
+//         toTime:req.body.toTime,
+//         buyerName:req.body.buyerName,
+//         address:req.body.address,
+//         mobile:req.body.mobile,
+//         image:req.body.image
+//       }).save();
+//       res.status(200).json({ message: "Added new product", newUser });
+//     } catch (error) {
+//       console.log("Error in product----", error);
+//     }
+//   });
 
   router.delete("/rentalProducts", async (req, res) => {
     try {
