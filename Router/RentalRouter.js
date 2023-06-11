@@ -20,7 +20,7 @@ router.post("/rentalProducts", async (req, res) => {
         buyerName:req.body.buyerName,
         address:req.body.address,
         mobile:req.body.mobile,
-        imageURL:req.body.imageURL
+        image:req.body.image
       }).save();
       res.status(200).json({ message: "Added new product", newUser });
     } catch (error) {
